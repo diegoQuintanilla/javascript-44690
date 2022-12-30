@@ -16,18 +16,22 @@ while (contador < 3) {
     ID = Number(prompt("Por favor, ingrese su numero ID"));
     
     if (ID != ""){    // validacion de la variable ID 
-
-        if (ID == empleado1) {
-            saludar("Diego");
-            break;
-        } else if (ID == empleado2) {
-            saludar("Hernan");
-            break;
-        } else if (ID == empleado3) {
-            saludar("Samuel");
-            break;
-        } else {
-            alert("su numero ID no corresponde a un empleado activo")
+        
+        switch (ID) {
+            case empleado1: 
+                saludar("Diego")
+                contador=3
+                break;
+            case empleado2:
+                saludar("Hernan")
+                contador=3
+                break;
+            case empleado3:
+                saludar("Samuel")
+                contador=3
+                break;
+            default:
+                alert("su numero ID no corresponde a un empleado activo");
         }
 
     } else {
