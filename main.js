@@ -1,5 +1,6 @@
 
-//simulador de autentificacion  
+let digito = "";
+
 
 //creamos el constructor de objetos 
 class Empleado {
@@ -9,63 +10,75 @@ class Empleado {
         this.ID = ID;
         this.rango = rango;
     }
+
 }
+
+const numeros = document.querySelectorAll(".numeros");
+const cancelar = document.getElementById("cancelar");
+const aceptar = document.getElementById("aceptar");
+const lector_panel = document.getElementById("lector_panel");
+
 
 //creamos tres empleados a modo de prueba con sus correspondientes ID
-const empleado1 = new Empleado ("Diego","Ramirez",4958, "Supervisor");
-const empleado2 = new Empleado ("Hernan","Ramos",3381, "Encargado");
-const empleado3 = new Empleado ("Claudio","Gomez",1980, "Operador");
+
+localStorage.setItem(`empleado 1`,JSON.stringify(new Empleado ("Diego","Ramirez","4958", "Supervisor")));
+localStorage.setItem(`empleado 2`,JSON.stringify(new Empleado ("Hernan","Ramos","3381", "Encargado")));
+localStorage.setItem(`empleado 3`,JSON.stringify(new Empleado ("Claudio","Gomez","1980", "Operador")));
+
+const empleado1 = JSON.parse(localStorage.getItem("empleado 1"));
+const empleado2 = JSON.parse(localStorage.getItem("empleado 2"));
+const empleado3 = JSON.parse(localStorage.getItem("empleado 3"));
 
 
-const diaDeLaSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
-let diaActual = new Date();
-let contador = 0;
-let numID;
-let asistencia = [];
 
+for (let i = 0; i < numeros.length; i++) {
+    numeros[i].addEventListener("click", (e) => {
 
-//creamos la funcion flecha para automatizar el saludo de acceso 
-const saludar = nombre => alert ("***Bienvenido " + nombre + "***");   
-
-function asis() {
-    asistencia.push(diaDeLaSemana[diaActual.getDay()]);
-    asistencia.push(diaActual.getDate());
+        let atr = e.target.getAttribute('value');
+        if (digito=="") {
+            digito = atr;
+            lector_panel.innerHTML = digito;
+        }else {
+            digito += atr;
+            lector_panel.innerHTML = digito;    
+        }
+    
+    })
+    
 }
 
+cancelar.addEventListener("click",cancelacion);
+function cancelacion(){
+    lector_panel.innerHTML = "";
+    digito = "";
+}
 
+aceptar.addEventListener("click",() => {
 
-while (contador < 3) {
-    numID = Number(prompt("Por favor, ingrese su numero ID"));
-    
-    if (numID != ""){    // validacion de la variable ID 
-        
-        switch (numID) {
-            case empleado1.ID: 
-                saludar(empleado1.nombre);
-                asis();
-                contador=3;
+    if (digito) {
+
+        switch (digito) {
+            case empleado1.ID:
+                saludar(empleado1.nombre); 
                 break;
             case empleado2.ID:
-                saludar(empleado2.nombre);
-                asis();
-                contador=3;
+                saludar(empleado2.nombre); 
                 break;
             case empleado3.ID:
-                saludar(empleado3.nombre);
-                asis();
-                contador=3;
-                break;
+                saludar(empleado3.nombre); 
+                break; 
             default:
-                alert("su numero ID no corresponde a un empleado activo");
-        }        
+                lector_panel.innerText = `su numero ID es invalido`;
+                break;
+        }
 
     } else {
-        alert ("No ingreso ningun numero ID");
-    }    
+        lector_panel.innerText = "no ingreso ningun numero ID";
+    }
 
-    contador++;
-}    
-
+} )
+ 
+const saludar = nombre => {lector_panel.innerText = `*** Bienvenido ${nombre} ***`};   
 
 
 
