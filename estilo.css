@@ -31,6 +31,17 @@ body {
     line-height: 2;
 }
 
+#cajaHora {
+    height: 30%;
+    margin-top: -10px;
+    background-color: beige;
+}
+#hora {
+    font-size: 2rem;
+    padding-top: 0;
+    margin-top: -30px;
+}
+
 #lector_panel {
     display: block;
     height: 50px;
