@@ -1,40 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulador</title>
-    <link rel="stylesheet" href="estilo.css">
-</head>
-<body>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
     <div class="cajaPrincipal">
-        <div id="lector">
-            <fieldset id="cajaHora">
-                <h5 id="hora"></h5>
-                <legend id="fecha"></legend>
-            </fieldset>
-        
-            <span id="lector_panel"></span>
-        </div>
-        <div class="accesos"></div>
-        <div class="panelNumerico">
-            <button id="1" class="numeros" value="1">1</button>
-            <button id="2" class="numeros" value="2">2</button>
-            <button id="3" class="numeros" value="3">3</button>
-            <button id="4" class="numeros" value="4">4</button>
-            <button id="5" class="numeros" value="5">5</button>
-            <button id="6" class="numeros" value="6">6</button>
-            <button id="7" class="numeros" value="7">7</button>
-            <button id="8" class="numeros" value="8">8</button>
-            <button id="9" class="numeros" value="9">9</button>
-            <button id="cancelar" class="boton">X</button>
-            <button id="0" class="numeros" value="0">0</button>
-            <button id="aceptar" class="boton">►</button>
-        </div>
+      <div id="lector">
+        <fieldset id="cajaHora">
+          <h5 id="hora"></h5>
+          <legend id="fecha"></legend>
+        </fieldset>
+
+        <span id="lector_panel"></span>
+      </div>
+
+      <div class="panelNumerico" id="panelNumerico" >
+        <button id="1" class="numeros" value="1">1</button>
+        <button id="2" class="numeros" value="2">2</button>
+        <button id="3" class="numeros" value="3">3</button>
+        <button id="4" class="numeros" value="4">4</button>
+        <button id="5" class="numeros" value="5">5</button>
+        <button id="6" class="numeros" value="6">6</button>
+        <button id="7" class="numeros" value="7">7</button>
+        <button id="8" class="numeros" value="8">8</button>
+        <button id="9" class="numeros" value="9">9</button>
+        <button id="cancelar" class="boton">X</button>
+        <button id="0" class="numeros" value="0">0</button>
+        <button id="aceptar" class="boton">►</button>
+      </div>
+      <em>listado de ID validos "4958,3381,1980"</em>
     </div>
 
 
+    <div class="opcionesLaterales">
+        <section class="datosPersonales " id="datosPersonales">
+        </section>
+        <section class="datosLaborales">
+            <h3>Datos Laborales</h3>
+            <ul>
+                <li>Asistencias</li>
+                <li>Ausencias</li>
+                <li>Faltas justificadas</li>
+                <li>Llegadas tarde</li>
+            </ul>
+        </section>
+        <section class="opciones">
+            <button>Agregar empleado</button>
+            <button>Modificar datos</button>
+            <button>Cerrar Sesion</button>
+        </section>
+    </div>
+
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
+
+
+<!-- faltaria mas arrays, metodos, librerias, todos los ultimos temas que puedas agregar van a hacer que el proyecto se vea mas completo, cualquier cosa igual avisame o preguntame, exitos! Saludoos -->
+
+<!-- objetos y arrays, metodos de arrays
+    funciones y condicionales
+    generacion del DOM de forma dinamica
+    eventos
+    sintaxis avanzada
+    al menos una libreria de uso relevante para el proyecto
+    manejo de promesas con fetch
+    carga  de datos desde un JSON local o desde una API externa -->

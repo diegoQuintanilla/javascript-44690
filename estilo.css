@@ -1,5 +1,6 @@
 body {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     place-items: center;
     background-color: rgba(0, 0, 0, 0.716);
 }
@@ -9,14 +10,14 @@ body {
     place-items: center;
     grid-template-areas: 
     "lector lector lector"
-    "accesos panel panel"
-    "accesos panel panel";
+    "panel panel panel"
+    "panel panel panel";
     width: 50%;
     height: 35rem;
     background-color: cadetblue;
     border: 3px solid black;
     border-radius: 10px;
-    margin-top: 6.25rem;
+    margin-top: 50px;
 }
 
 #lector {
@@ -48,14 +49,6 @@ body {
     width: 95%;
 }
 
-.accesos {
-    grid-area: accesos;
-    width: 90%;
-    height: 400px;
-    background-color: beige;
-    border: 2px solid black;
-    border-radius: 10px;
-}
 
 .panelNumerico {
     display: flex;
@@ -88,3 +81,72 @@ body {
     color: white;
 }
 
+
+.opcionesLaterales { 
+    display: grid;
+    grid-template-rows: 1fr 1fr auto;
+    gap: 1rem;
+    width: 100%;
+}
+
+.datosPersonales {
+    /* background-color: aqua; */
+    width: 100%;
+    text-align: center;
+}
+
+.datosPersonales h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: underline;
+}
+
+.datosPersonales ul li {
+    list-style: none;
+    display: flex;
+    padding: 5px;
+    font-size: 18px;
+    color: white;
+}
+
+
+.datosLaborales {
+    /* background-color: aqua; */
+    width: 100%;
+    text-align: center;
+}
+
+.datosLaborales h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: underline;
+}
+
+.datosLaborales ul li {
+    list-style: none;
+    display: flex;
+    padding: 5px;
+    font-size: 18px;
+    color: white;
+}
+
+
+.opciones { 
+    display: flex;
+    justify-content: center;
+}
+
+.opciones button {
+    line-height: 3;
+    margin: 1.5rem;
+    border-radius: 5px;
+}
+
+.inactivo {
+    display: none;
+}
+.activo {
+    display: flex;
+}
