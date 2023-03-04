@@ -1,0 +1,30 @@
+[
+    {   
+        "nombre": "Diego",
+        "apellido": "Ramirez",
+        "edad":"31",
+        "estado Civil":"Soltero",
+        "antiguedad":"3 años",
+        "rango":"supervisor",
+        "id": "4958"
+            
+    },
+    {
+        "nombre": "Hernan",
+        "apellido": "Ramos",
+        "edad":"24",
+        "estado Civil":"Soltero",
+        "antiguedad":"5 años",
+        "rango":"encargado",
+        "id": "3381"
+    },
+    {
+        "nombre": "Claudio",
+        "apellido": "Gomez",
+        "edad":"30",
+        "estado Civil":"Casado",
+        "antiguedad":"9 años",
+        "rango":"Operador",
+        "id": "1980"
+    }
+]

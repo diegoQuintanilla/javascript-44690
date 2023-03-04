@@ -1,8 +1,5 @@
-
+let DateTime = luxon.DateTime;
 let digito = "";
-let fechaActual = new Date();
-const diasDeLaSemana = [`domingo`,`lunes`,`martes`,`miercoles`,`jueves`,`viernes`,`sabado`];
-const mesDelAnio = [`enero`,`febrero`,`marzo`,`abril`,`mayo`,`junio`,`julio`,`agosto`,`septiembre`,`octubre`,`noviembre`,`diciembre`];
 
 //creamos el constructor de objetos 
 class Empleado {
@@ -25,20 +22,20 @@ const lector_panel = document.getElementById("lector_panel");
 const hora = document.getElementById("hora");
 const fecha = document.getElementById("fecha");
 const dPersonales = document.getElementById("datosPersonales");
+const informacion = document.getElementById("informacion");
 const panelNumerico = document.getElementById("panelNumerico");
 
 //CREACION DEL TEMPORIZADOR
-fecha.innerHTML = `${diasDeLaSemana[fechaActual.getDay()]} ${fechaActual.getDate()} de ${mesDelAnio[fechaActual.getMonth()]} del ${fechaActual.getFullYear()}`;
+fecha.innerHTML = DateTime.now().setLocale('es').toFormat("cccc dd 'de' MMMM 'de' yyyy");
 setInterval(()=>{
-    let horaActual = new Date;
-    hora.innerHTML = horaActual.toLocaleTimeString();
+    hora.innerHTML = DateTime.now().toFormat("hh:mm:ss");
 },1000)
 
 //creamos tres empleados a modo de prueba con sus correspondientes id
 
-localStorage.setItem(`empleado 1`,JSON.stringify(new Empleado ("Diego","Ramirez",'31','soltero','13 años','Supervisor',"4958")));
+localStorage.setItem(`empleado 1`,JSON.stringify(new Empleado ("Diego","Ramirez",'31','soltero','3 años','Supervisor',"4958")));
 localStorage.setItem(`empleado 2`,JSON.stringify(new Empleado ("Hernan","Ramos",'24','soltero','5 años','Encargado',"3381")));
-localStorage.setItem(`empleado 3`,JSON.stringify(new Empleado ("Claudio","Gomez",'30','casado','19 años','Operador',"1980")));
+localStorage.setItem(`empleado 3`,JSON.stringify(new Empleado ("Claudio","Gomez",'30','casado','9 años','Operador',"1980")));
 
 const empleado1 = JSON.parse(localStorage.getItem("empleado 1"));
 const empleado2 = JSON.parse(localStorage.getItem("empleado 2"));
@@ -80,11 +77,13 @@ aceptar.addEventListener("click",() => {
                 break;
             case empleado2.id:
                 saludar(empleado2.nombre);
-                mostrarDatosPersonales(empleado2); 
+                mostrarDatosPersonales(empleado2);
+                bloqueo(); 
                 break;
             case empleado3.id:
                 saludar(empleado3.nombre);
                 mostrarDatosPersonales(empleado3); 
+                bloqueo();
                 break; 
             default:
                 lector_panel.innerText = `** Su numero ID es invalido **`;
@@ -111,7 +110,9 @@ function limpiarLector(){
 
   mostrarDatosPersonales = (empleado) => {
 
-    lector_panel.innerText = `*** Asistencia Registrada ***`;
+    setTimeout(() => {
+        lector_panel.innerText = `*** Asistencia Registrada ***`;
+    }, 2000);
     
     const datos = document.createElement('ul');
     datos.innerHTML = ` <h3>Datos Personales</h3>
@@ -122,14 +123,30 @@ function limpiarLector(){
                         <li>Antiguedad: ${empleado.antiguedad}</li>
                         <li>Rango: ${empleado.rango}</li>`
     dPersonales.appendChild(datos);
-}
-
+    }
+                    
 
 
 bloqueo = () => {
     panelNumerico.className = 'inactivo';
     
-
+    
 }
 
+fetch ("data/empleados.json")
+    .then (response => response.json())
+    .then (data => {
+        for (const elemento of data) {
+            const info = document.createElement("ul");
+            info.innerHTML = `<li>${elemento.nombre}</li>
+                            <li>${elemento.apellido}</li>`
+            informacion.appendChild(info);
+        }
 
+    })
+
+
+
+
+                        
+                        
