@@ -33,9 +33,9 @@ setInterval(()=>{
 
 //creamos tres empleados a modo de prueba con sus correspondientes id
 
-localStorage.setItem(`empleado 1`,JSON.stringify(new Empleado ("Diego","Ramirez",'31','soltero','3 años','Supervisor',"4958")));
-localStorage.setItem(`empleado 2`,JSON.stringify(new Empleado ("Hernan","Ramos",'24','soltero','5 años','Encargado',"3381")));
-localStorage.setItem(`empleado 3`,JSON.stringify(new Empleado ("Claudio","Gomez",'30','casado','9 años','Operador',"1980")));
+localStorage.setItem(`empleado 1`,JSON.stringify(new Empleado ("Diego","Ramirez",'31','soltero','3 años','Supervisor',"1111")));
+localStorage.setItem(`empleado 2`,JSON.stringify(new Empleado ("Hernan","Ramos",'24','soltero','5 años','Encargado',"2222")));
+localStorage.setItem(`empleado 3`,JSON.stringify(new Empleado ("Claudio","Gomez",'30','casado','9 años','Operador',"3333")));
 
 const empleado1 = JSON.parse(localStorage.getItem("empleado 1"));
 const empleado2 = JSON.parse(localStorage.getItem("empleado 2"));
@@ -132,21 +132,4 @@ bloqueo = () => {
     
     
 }
-
-fetch ("data/empleados.json")
-    .then (response => response.json())
-    .then (data => {
-        for (const elemento of data) {
-            const info = document.createElement("ul");
-            info.innerHTML = `<li>${elemento.nombre}</li>
-                            <li>${elemento.apellido}</li>`
-            informacion.appendChild(info);
-        }
-
-    })
-
-
-
-
-                        
                         

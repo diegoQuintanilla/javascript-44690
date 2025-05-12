@@ -1,45 +1,42 @@
 body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     place-items: center;
     background-color: rgba(0, 0, 0, 0.716);
 }
 
 .cajaPrincipal {
+    margin-top: 2rem;
     display: grid;
     place-items: center;
+    gap: 15px;
     grid-template-areas: 
     "lector lector lector"
     "panel panel panel"
     "panel panel panel";
     width: 50%;
-    height: 35rem;
     background-color: cadetblue;
-    border: 3px solid black;
+    border: 5px solid black;
     border-radius: 10px;
-    margin-top: 50px;
 }
 
 #lector {
+    margin-top: .5rem;
     grid-area: lector;
     width: 95%;
     height: 130px;
     background-color: white;
     border: 2px solid black;
     border-radius: 10px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
     line-height: 2;
 }
 
 #cajaHora {
-    height: 30%;
-    margin-top: -10px;
+    height: 36%;
     background-color: beige;
 }
 #hora {
     font-size: 2rem;
-    padding-top: 0;
     margin-top: -30px;
 }
 
@@ -54,14 +51,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    column-gap: 7px;
+    column-gap: 10px;
     grid-area: panel;
     width: 95%;
     height: 400px;
     background-color: cornflowerblue;
     border: 2px solid black;
     border-radius: 10px;
-    
+    margin-bottom: .5rem;
 }
 
 .numeros, .boton {
@@ -70,8 +67,6 @@ body {
     background-color: blue;
     border: 2px solid black;
     border-radius: 40px;
-    text-align: center;
-    line-height: 2.5;
     font-size: 30px;
     margin-top: .5rem;
 }
@@ -81,16 +76,7 @@ body {
     color: white;
 }
 
-
-.opcionesLaterales { 
-    display: grid;
-    grid-template-rows: 1fr 1fr auto;
-    gap: 1rem;
-    width: 100%;
-}
-
 .datosPersonales {
-    /* background-color: aqua; */
     width: 100%;
     text-align: center;
 }
@@ -112,7 +98,6 @@ body {
 
 
 .datosLaborales {
-    /* background-color: aqua; */
     width: 100%;
     text-align: center;
 }
